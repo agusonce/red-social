@@ -1,0 +1,170 @@
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('../../../assets/fonts/ubuntu/Ubuntu-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('../../../assets/fonts/ubuntu/Ubuntu-Bold.ttf'); 
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+.contenedor{
+	width: 100%;
+	height: 400px;
+}
+
+.posts{
+	width: 70%;
+	height: 400px;
+	background-color: yellow;
+}
+
+.post{
+	font-family: Ubuntu-Regular;
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	border: 3px solid #eee;
+}
+.titular{
+	font-size: 1.2em;
+	padding: 15px;
+	background-color: #f3efef;
+}
+.cuerpo{
+	padding: 5px;
+	min-height: 100px;
+	background-color: white;
+	display: block;
+	border-bottom: 1px solid #eee;
+}
+.cuerpo .contenido{
+	padding: 15px;
+	font-size: 1.1em;
+	width: 95%;
+	display: block;
+
+}
+.cuerpo .img{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.cuerpo .img  img{
+	max-height: 350px;
+}
+
+.reacciones{
+	width: 100%;
+	text-align: center;
+}
+
+.like{
+	float: left;
+	width: 33%;
+	padding: 15px 0px;
+
+}
+.coment{
+	float: left;
+	padding: 15px 0px;
+	width: 33%;
+
+}
+.comprtir{
+	float: left;
+	padding: 15px 0px;
+	width: 32%;
+}
+
+
+
+/* COMENTATIO */
+.comentario{
+	width: 100%;
+	justify-content: center;
+
+}
+
+.comentario input[type="text"]{
+	width: 85%;
+	margin:5px;
+	padding: 5px 10px;
+	background-color: #e2e2e2;
+	border-radius: 15px;
+}
+
+.comentario input[type="submit"]{
+	width: 10%;
+	padding: 5px 10px;
+	background-color: #eeee;
+	border-radius: 15px;
+}
+
+.comentarios{
+	background-color: #eee;
+    padding: 10px;
+    display: inline-block;
+    width: 93%;
+    border-radius: 0px 20px 20px 20px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.comentarios .autor{
+	padding: 10px;
+    background-color: transparent;
+    margin-bottom: 0px;
+    width: 95%;
+}
+
+.comentarios p{
+	padding: 10px;
+    background-color: transparent;
+    width: 95%;
+    margin: 0px;
+}
+
+.form-comentar input[type="text"]{
+	width: 85%;
+    margin: 5px 0px 5px 5px;
+    padding: 10px 10px 10px 15px;
+    background-color: #e2e2e2;
+    border-radius: 15px 0px 0px 15px;
+    border: none;
+}
+.form-comentar{
+	font-size: 1.2em;
+    padding: 0px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.form-comentar input[type="submit"]{
+	width: 10%;
+    padding: 10px 10px;
+    background-color: #000affee;
+    border-radius: 0px 15px 15px 0px;
+    font-family: Ubuntu-Regular;
+    color: white;
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+.contenedor{
+	width: 100%;
+	height: auto;
+}
+.sub-titulo{
+	width: 80%;
+	font-size: 1.5em;
+}
+
+.form{
+	width: 90%;
+	font-size: 1.2em;
+	margin:auto;
+}
+.input{
+	padding: 10px 10px;
+	width: 97%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.btn{
+	padding: 10px 10px;
+	width: 100%;
+	margin-top: 5px;
+	border:none;
+	color: white;
+	background-color: rgb(150,150,250);
+}
+.btn:hover{
+	background-color: rgb(126,126,251);
+
+}
+
+
+form input[disabled]{
+	opacity: 0.4;
+	cursor: not-allowed;
+}

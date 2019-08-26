@@ -1,0 +1,24 @@
+<div class="contenedor">		
+<!--	<u>
+		<li (click)="cerrarSecion()">Cerrar sercion</li>
+		<li *ngIf="localStorageUser">
+			{{localStorageUser.name}}
+		</li>
+	</u>
+-->
+	<form class="form" #postForm="ngForm" (ngSubmit)="savePost(postForm)">
+		<span class="sub-titulo">
+			Publica...
+		</span>
+						
+		<label for="titular"></label>
+		<input class="input" type="text" name="titular" #titular="ngModel" [(ngModel)]="post.cuerpo" placeholder="Escribe..." required/>
+		<span class="form-error" *ngIf="titular.touched && !titular.valid">
+				*Escriba algo
+		</span>
+		<input type="file" name="imagen" placeholder="Subir imagen..."  (change)="fileChangeEvent($event)"/>		
+		<input class="btn" type="submit" [disabled]="!postForm.form.valid" name="btnuser">
+	</form>
+
+
+</div>

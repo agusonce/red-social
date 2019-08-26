@@ -1,0 +1,39 @@
+<div class="contenedor">
+		
+	<div *ngIf="posts" class="posts">
+		
+		<div *ngFor="let post of posts" class="post">
+			<picture class="titular">
+				<img src="{{url+'getImage/'+post.usuario[0].imagen}}" class="foto-perfil">
+				<span class="">
+					{{post.usuario[0].user}}
+				</span>
+			</picture>
+			<div class="cuerpo">
+				<span class="contenido">{{post.cuerpo}}</span>
+				<picture class="img">
+					<img src="{{url+'getImage/'+post.imagen}}" *ngIf="post.imagen" />
+				</picture>
+			</div>
+			<div class="reacciones">
+				<div class="like">Me gusta</div>
+				<div class="coment" (click)="getComentarios(post._id)">comentar</div>
+				<div class="comprtir">compartir</div>
+			</div>
+			<div class="comentario">
+			<!--		<div class="comentarios">
+						<div class="autor">David Sanchez</div>
+						<p>i love you</p>
+					</div>
+-->
+				<form id="{{post._id}}" class="form-comentar" >
+					<input type="hidden" name="post"  value="{{post._id}}" >
+					<input type="text" name="comentario"   placeholder="Escribir..." >
+					<input type="submit" value="Enviar" (click)="insertComent(post._id)" >
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+</div>

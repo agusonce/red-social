@@ -1,0 +1,29 @@
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('../../../assets/fonts/ubuntu/Ubuntu-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('../../../assets/fonts/ubuntu/Ubuntu-Bold.ttf'); 
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+.container{
+	width: 100%;
+	height: 100vh;
+	background-color: #eee;
+	background-attachment: fixed;
+}
+
+.home{
+	width: 50%;
+	height: auto;
+	margin: auto;
+}
+
