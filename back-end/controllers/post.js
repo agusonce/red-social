@@ -1,6 +1,7 @@
 'use strict'
 var Post = require('../models/posts');
 var Comentario = require('../models/comentarios');
+var Like = require('../models/like');
 var fs = require('fs');
 var path = require('path');
 var controller = {
@@ -95,6 +96,140 @@ var controller = {
 				return  res.status(200).send({comentarios});
 			});
 */
+		},
+		Testinsert1: function(req,res){			
+			var newData = new Like();
+			newData.authorId= "5f3aec54cc0e6d2a14eb6913";
+			
+			Post.findByIdAndUpdate({_id : "5f3aef24cc0e6d2a14eb6915"}, {$push: {"likes" : newData}}, {new:true}, (err, postUpdate) => {
+						if (err) return res.status(500).send({message:'la imagen no se subio'});
+						console.log(postUpdate);
+						if (!postUpdate) return res.status(404).send({message:'no existe el proyecto..'});
+
+						return res.status(200).send({
+							post: postUpdate
+						});
+
+					});
+
+			
+		},
+		Testinsert: function(req,res){			
+			var newData = new Like();
+			newData.authorId= "5f3aef24cc0e6d2a14eb6915";
+			
+			Post.find({_id : "5f3aef24cc0e6d2a14eb6915" , likes:{ $elemMatch: {authorId:"5f3aec54cc0e6d2a14eb6913"} } }, (err, postUpdate) => {
+						console.log(err);
+						
+						if (err) return res.status(500).send({message:'no match'});
+						console.log(postUpdate);
+							if (postUpdate.length==0) {
+								console.log("no hay nada");
+							}else{
+								console.log("hay algo");
+							}
+						
+						if (!postUpdate) return res.status(404).send({message:'no existe el proyecto..'});
+
+						console.log(postUpdate);
+						console.log(!postUpdate);
+						return res.status(200).send({
+							post: postUpdate
+						});
+
+					});
+
+			
+		},
+		Testinsert2: function(req,res){			
+			var newData = new Like();
+			newData.authorId= "5f3aec54cc0e6d2a14eb6913";
+			
+			Post.update({_id : "5f3aef24cc0e6d2a14eb6915" },{ $pull:{ likes:{ $elemMatch: {authorId:"5f3aec54cc0e6d2a14eb6913"} } }}, (err, postUpdate) => {
+						console.log(err);
+						
+						if (err) return res.status(500).send({message:'no match'});
+						console.log(postUpdate);
+							if (postUpdate.length==0) {
+								console.log("no hay nada");
+							}else{
+								console.log("hay algo");
+							}
+						
+						if (!postUpdate) return res.status(404).send({message:'no existe el proyecto..'});
+
+						console.log(postUpdate);
+						console.log(!postUpdate);
+						return res.status(200).send({
+							post: postUpdate
+						});
+
+					});
+
+			
+		},
+		Testinsert3: function(req,res){	
+			var postId = req.body.postId;
+			var userId = req.body.userId;
+			console.log("params",req.body);
+			console.log("postId",postId);
+			console.log("userId",userId);
+			Post.find({_id : postId , likes:{ $elemMatch: {authorId : userId } } }, (err, postUpdate) => {
+						console.log(err);
+						
+						if (err) return res.status(500).send({message:'no match'});
+						console.log(postUpdate);
+							if (postUpdate.length==0) {
+									var newData = new Like();
+									newData.authorId= userId;
+									
+									Post.findByIdAndUpdate({_id : postId}, {$push: {"likes" : newData}}, {new:true}, (err, postPush) => {
+												if (err) return res.status(500).send({message:'la imagen no se subio'});
+												console.log(postPush);
+												if (!postPush) return res.status(404).send({message:'no existe el proyecto..'});
+
+												return res.status(200).send({
+													post: postPush
+												});
+
+											});
+
+
+								console.log("no hay nada");
+							}else{
+
+
+									console.log("eliminar:");
+									console.log("author : ",userId);
+									Post.update({_id : postId },{ $pull  :{ likes:  {"authorId": userId} } }, (err, postPull) => {
+												console.log(err);
+												
+												if (err) return res.status(500).send({message:'no match'});
+												console.log(postPull);
+													if (postPull.length==0) {
+														console.log("no hay nada");
+													}else{
+														console.log("hay algo update");
+													}
+												
+												if (!postPull) return res.status(404).send({message:'no existe el proyecto..'});
+
+												return res.status(200).send({
+													post: postPull
+												});
+
+											});
+
+								console.log("hay algo fuera");
+
+							}
+						
+						
+
+						
+
+					});
+			
 		},
 		insertComentarioPost: function(req, res){
 			var params = req.body;

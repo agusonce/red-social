@@ -29,9 +29,11 @@ var controller = {
 		getUser: function(req, res){
 			var usuario = req.body.user;
 			var password = req.body.pass;
+			console.log("user: ",req.body.user);
+			console.log("pass: ",req.body.pass);
 			console.log(req.body);
 			User.find({'user' : usuario, 'pass' : password}).exec((err, user) => {
-
+				console.log(user);
 				if(err) return res.status(500).send({message: 'erro al devolver losdatos'});
 
 				if(!user) return res.status(404).send({message: 'no hay ningun proyecto que mostrar'});

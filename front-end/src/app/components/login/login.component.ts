@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   public status: Boolean;
 	public localStorageUser;
 
-
   constructor(
   	private _userService: UserService,
     private _router: Router
@@ -50,7 +49,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("usuario", JSON.stringify(response.user[0]));                     
             this.status = false;
             this.localStorageUser = response.user[0];
-            this._router.navigate(['/crear-post']);
+            this._router.navigate(['/home']);
         }else{
             console.log("no response");
           this.status = true;

@@ -16,21 +16,43 @@
 				</picture>
 			</div>
 			<div class="reacciones">
-				<div class="like">Me gusta</div>
-				<div class="coment" (click)="getComentarios(post._id)">comentar</div>
+				<div class="like" (click)="setLike(post._id)" id="{{post._id+'_like'}}" >{{likeValidation(post.likes,post._id)?'':''}}Me gusta</div>
+				<div class="coment" (click)="clickComentarios(post._id)">comentar</div>
 				<div class="comprtir">compartir</div>
 			</div>
 			<div class="comentario">
+					
+				<div *ngIf="comenterioDoms">
+					<div *ngIf="comenterioDoms.comentarios[0].post==post._id">
+						<div *ngFor="let comenterioDom of comenterioDoms.comentarios" class="comentarioPost {{comenterioDom.usuario[0]._id==localStorageUser._id?'':'otherAutor'}}">
+							<div class="Autor">
+								{{comenterioDom.usuario[0]._id==localStorageUser._id?'Autor':''}}
+								{{comenterioDom.usuario[0].user}}
+								
+								
+							</div>
+							<div class="parrafo">
+								{{comenterioDom.comentario}}
+								
+							</div>
+								
+						</div>
+
+						<form id="{{post._id}}" class="form-comentar" >
+							<input type="hidden" for="post" name="post"  value="{{post._id}}" >
+							<input type="text" name="comentario"   placeholder="Escribir..." >
+							<input type="submit" value="Enviar" (click)="insertComent(post._id)" >
+						</form>
+
+
+					</div>	
+				</div>
 			<!--		<div class="comentarios">
 						<div class="autor">David Sanchez</div>
 						<p>i love you</p>
 					</div>
 -->
-				<form id="{{post._id}}" class="form-comentar" >
-					<input type="hidden" name="post"  value="{{post._id}}" >
-					<input type="text" name="comentario"   placeholder="Escribir..." >
-					<input type="submit" value="Enviar" (click)="insertComent(post._id)" >
-				</form>
+				
 
 			</div>
 		</div>

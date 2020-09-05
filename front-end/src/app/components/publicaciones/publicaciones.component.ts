@@ -12,10 +12,12 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
   styleUrls: ['./publicaciones.component.css'],
   providers: [PostService]
 })
+
 export class PublicacionesComponent implements OnInit {
 public localStorageUser;
 	public posts: Post;
   public url: String;
+  public comenterioDoms: Array<String>;
   public comentario: Comentario;
   public comentarios: Comentario;
   public comentarioPost: Array<String>;
@@ -49,7 +51,7 @@ public localStorageUser;
   			if(response.posts){
 				this.posts = response.posts;
           console.log(response);
-          console.log(response.posts[0]);
+          console.log("aqui",response.posts[0]);
 	  			console.log(response.posts[0].usuario[0].imagen);
   			}
   		},
@@ -58,28 +60,84 @@ public localStorageUser;
   		}
   	);
   }
+  
 
+  likeValidation(likes,postId){
+   // console.log("likeValidation: ",likes);
+    for (var i = 0; i<= likes.length; i++) {
+      if (likes[i]) {
+        if (likes[i].authorId == this.comentario.titular) {
+          let a = document.getElementById(postId+"_like");
+
+          a.style.color="blue";
+          return true;
+        }else{
+          console.log("no esta");
+          return false;
+        }
+      }
+    }
+  }
+
+   clickComentarios(idPost){
+
+      console.log(idPost);
+      if(this.comenterioDoms){
+      console.log(this.comenterioDoms.comentarios[0].post);
+          if(this.comenterioDoms.comentarios[0].post == idPost){
+                      this.comenterioDoms = null;
+          }else{
+            this.getComentarios(idPost);
+          }
+
+      }else{
+        this.getComentarios(idPost);
+      }
+
+    }
+  
    getComentarios(idPost){
-
+    console.log("idPost: ",idPost);
     this._postService.getComentarios(idPost).subscribe(
       response => {
           this.comentarios = response;
-          this.generarComentarios(response,idPost);
-          //console.log(response);
+          this.comenterioDoms = response;
       },
       error => {
         console.log(<any>error);
       }
     );
-     // console.log(data);
- //     var form = document.getElementById(data);
-      //console.log(form);
-   //   console.log(form.comentario.value);
 
     }
 
 
 
+ setLike(idPost){
+    console.log(idPost);
+    console.log(this.comentario.titular);
+    let a = document.getElementById(idPost+"_like");
+    
+    console.log("vacio:||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ");
+    console.log("vacio: ",a);
+
+    this._postService.updateLikes(idPost,this.comentario.titular).subscribe(
+          response => {
+                if (a.style.color=="blue") {
+                  a.style.color="";
+                  console.log("vacio");
+                }else{
+                  a.style.color="blue";
+                  console.log("blue");
+
+                }
+          //console.log(response);
+        },
+        err => {
+          //console.log(<any>err);
+        }
+      );
+ 
+ }
 
   insertComent(formId){
     var form = document.getElementById(formId);
@@ -90,54 +148,15 @@ public localStorageUser;
     this._postService.insertComentario(this.comentario).subscribe(
           response => {
           console.log(response);
+          form.comentario.value = "";
+          this.getComentarios(this.comentario.post);
         },
         err => {
           console.log(<any>err);
         }
       );
    }
- generarComentarios(response,idPost){
-   
- //Varibles
-          var newDiv;
-          var divComentario;
-          var contenido; 
-          var form;
-          var cssAutor = "padding: 10px; background-color: transparent; margin-bottom: 0px; width: 95%;";
-          var cssparrafo = "padding: 10px; background-color: transparent; width: 95%; margin: 0px;";
-          var cssComentarios = "background-color: #eee; padding: 10px; display: inline-block; width: 89%; border-radius: 0px 20px 20px 20px; margin-bottom: 5px; margin-left:20px;";
-          document.getElementById(idPost).style = "display: block";
-        //comentario
-          console.log("response");
-          console.log(response.comentarios);
-          
-          
-          console.log(this.comentarioPost);
-          if (!this.comentarioPost.includes(response.comentarios[0].usuario[0]._id)) {
-              this.comentarioPost.push(response.comentarios[0].usuario[0]._id);
 
-            for (var i = 0; i < response.comentarios.length; i++) {
-                  //titular
-                 newDiv = document.createElement("div");
-                 divComentario = document.createElement("div");
-                 contenido = document.createTextNode("@"+response.comentarios[i].usuario[0].user); 
-                 divComentario.style = cssComentarios;// = "comentarios";
-                 newDiv.style = cssAutor;// = "comentarios";
-                 newDiv.appendChild(contenido); //añade texto al div creado. 
-                 divComentario.insertBefore(newDiv,divComentario[0]); 
-                 //comentario
-                 newDiv = document.createElement("p");
-                 contenido = document.createTextNode(response.comentarios[i].comentario); 
-                 newDiv.appendChild(contenido);
-                 newDiv.style = cssparrafo;// = "comentarios";
-                 divComentario.insertBefore(newDiv,divComentario[0]); 
-
-                 form = document.getElementById(idPost).parentNode;
-                 form.insertBefore(divComentario, form.childNodes[0]); 
-            }
-            
-          }
-  }
  
 
 

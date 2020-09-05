@@ -1,0 +1,114 @@
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('../../../assets/fonts/ubuntu/Ubuntu-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('../../../assets/fonts/ubuntu/Ubuntu-Bold.ttf'); 
+}
+
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+
+.contenedor{
+	width: 100%;
+	margin-top: 5px;
+	height: auto; 
+}
+
+.header{
+	width: 100%;
+    display: flex;
+    justify-content: space-between;
+	background-color: white;
+	box-shadow: 0px 3px 11px -5px rgba(0,0,0,0.75);
+	padding-right: 10px;
+	padding-left: 10px;
+	left:  0px;
+	margin-left: -10px;
+	margin-top: -5px;
+}
+
+.header .logo{
+	width: 10%;
+}
+
+.header .nav{
+	width: 80%;
+}
+
+.header .nav .options{
+    float: right;
+
+}
+
+.header .nav .options .option:hover{
+	background-color: rgba(123,123,123,.7);
+
+}
+
+.header .nav .options .option{
+	padding: 10px 15px;
+    margin: 10px;
+	background-color: #eeee;
+	border-radius: 20px;
+}
+.header .nav .options .option a{
+	color: black;
+}
+.header .nav .options .list{
+	width: 269px;
+	background-color: white;
+	position:absolute;
+    z-index: 10;
+    right: 0;
+	margin-right: 18px;
+	padding: 15px;
+	padding-top: 0px;
+	border-radius: 0px 0px 9px 9px;
+	box-shadow: 0px 3px 11px -5px rgba(0,0,0,0.75);
+
+
+}
+.header .nav .options .list .titulo{
+	color: black;
+	text-align: left;
+	font-size: 1.3em;
+
+}
+.header .nav .perfil .list{
+    display: none;
+}
+
+
+.header .nav .home .list{
+    display: none;
+
+}
+.header .nav .notificaciones .list{
+    display: none;
+
+}
+
+.header .nav .options .list a{
+	width: 220px;
+	
+	display: inline-block;
+	padding: 15px 25px;
+	border-radius: 20px;
+}
+.header .nav .options .list a:hover{
+	background-color: rgba(0,0,0,.2);
+}
+.header .logo img{
+
+    width: 50px;
+    margin: 2px 5px;
+    border-radius: 25px;
+}
+
+

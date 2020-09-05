@@ -16,14 +16,27 @@
 
 .container{
 	width: 100%;
-	height: 100vh;
-	background-color: #eee;
-	background-attachment: fixed;
+	background-color: #eeee;
+
+	
 }
 
 .home{
-	width: 50%;
-	height: auto;
+	width: 40%;
 	margin: auto;
+	margin-top:20px;
+
+}
+
+.post{
+	background-color: white;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	border: solid 1px #cccaca;
+    border-radius: 5px;
+}
+.publicaciones{
+	display: inline-block;
+    width: 100%;
 }
 

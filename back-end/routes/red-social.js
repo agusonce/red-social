@@ -26,6 +26,7 @@ router.get('/getImage/:image', UserControlller.getImageFile);
 router.get('/get-Posts', PostControlller.getPosts);
 router.post('/save-Post', PostControlller.savePost);
 router.post('/uploadImgPost/:id',multipartMiddeware, PostControlller.uploadImgPost);
+router.post('/Tes-insert-Like', PostControlller.Testinsert3);
 
 //
 router.post('/inserComentario', PostControlller.insertComentarioPost);

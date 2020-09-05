@@ -12,12 +12,14 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
 import { HomeComponent } from './components/home/home.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CreatePostComponent,
+    HeaderComponent,
     HomeComponent,
     PostsComponent,
     PublicacionesComponent

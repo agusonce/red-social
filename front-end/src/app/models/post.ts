@@ -3,7 +3,7 @@ export class Post{
 	 	public _id: String,
 	 	public titular: String,
 	 	public cuerpo: String,
-	 	public imagen: String,
+	 	public imagen: String
 	 ){}
 }
 

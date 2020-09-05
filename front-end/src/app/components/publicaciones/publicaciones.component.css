@@ -36,20 +36,26 @@
 
 .post{
 	font-family: Ubuntu-Regular;
-	width: 100%;
-	height: auto;
-	margin-top: 10px;
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	border: 3px solid #eee;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    background-color: white;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid #cccaca;
 }
 .titular{
-	font-size: 1.2em;
-	padding: 15px;
-	background-color: white;
-	border-bottom: 1px solid #eee;
-	display: flex;
+	    font-size: 1.2em;
+    padding: 15px;
+    background-color: white;
+     border-bottom: 1px solid #eee; 
+    display: -webkit-box;
+    display: flex;
+    margin: 5px;
 }
 .titular span{
 	justify-content: center;
@@ -58,7 +64,6 @@
 	padding-top: 10px;
 }
 .cuerpo{
-	padding: 5px;
 	min-height: 100px;
 	background-color: white;
 	display: block;
@@ -77,12 +82,15 @@
 	justify-content: center;
 }
 .cuerpo .img  img{
-	max-height: 350px;
+	max-width: 100%;
 }
 
 .reacciones{
 	width: 100%;
 	text-align: center;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .like{
@@ -113,7 +121,7 @@
 }
 
 .comentario input[type="text"]{
-	width: 84%;
+	width: 77%;
 	margin:5px;
 	padding: 5px 10px;
 	background-color: #e2e2e2;
@@ -121,7 +129,7 @@
 }
 
 .comentario input[type="submit"]{
-	width: 10%;
+	width: 13%;
 	padding: 5px 10px;
 	background-color: #eeee;
 	border-radius: 15px;
@@ -165,7 +173,7 @@
     padding: 0px;
     background-color: white;
     margin-bottom: 5px;
-    display: none;
+   /* display: none;*/
 }
 
 .form-comentar input[type="submit"]{
@@ -179,11 +187,34 @@
 }
 
 
+.comentarioPost{
+	background-color: #eeee;
+	padding: 10px;
+	display: inline-block;
+	width: 89%;
+	border-radius: 0px 20px 20px 20px;
+	margin-bottom: 5px;
+	margin-left:20px;	
+}
+
+.comentarioPost .Autor{
+	padding: 10px;
+ 	background-color: transparent;
+	margin-bottom: 0px;
+	width: 95%;
+}
+
+.comentarioPost .parrafo{
+	padding: 10px;
+	background-color: transparent;
+	width: 95%;
+	margin: 0px;
+}
 
 
+.otherAutor{
+	border-radius: 20px 0px 20px 20px;
 
-
-
-
+}
 
 

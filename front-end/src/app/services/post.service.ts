@@ -20,6 +20,7 @@ export class PostService{
 		return 'probando el servicio de angular';
 	}
 
+
   savePost(post: Post):Observable<any>{
       let params = JSON.stringify(post);
       let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -28,6 +29,11 @@ export class PostService{
       return this._http.post(this.url+'save-Post', params, {headers: headers}); 
   }
 
+  updateLikes(postId,userId):Observable<any>{
+      let params = JSON.stringify({"postId" : postId,"userId" : userId});
+      let headers = new HttpHeaders().set('Content-Type', 'application/json');
+      return this._http.post(this.url+'Tes-insert-Like', params, {headers: headers}); 
+  }
   getPosts():Observable<any>{
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
