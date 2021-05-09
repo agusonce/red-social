@@ -43,6 +43,21 @@ var controller = {
 			});
 
 		},
+		getDataUser: function(req, res){
+			var Id = req.body.id;
+			console.log("pass: ",req.body.Id);
+			console.log(req.body);
+			User.find({'_id' : Id}).exec((err, user) => {
+				console.log(user);
+				if(err) return res.status(500).send({message: 'erro al devolver losdatos'});
+
+				if(!user) return res.status(404).send({message: 'no hay ningun proyecto que mostrar'});
+
+				return res.status(200).send({user});
+
+			});
+
+		},
 		saveUser: function(req, res){
 			var user = new User;
 			var params = req.body;

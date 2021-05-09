@@ -41,7 +41,7 @@
     margin-top: 10px;
     background-color: white;
     display: -webkit-box;
-    display: flex;
+    display: flow-root;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;

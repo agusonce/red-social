@@ -27,6 +27,13 @@ export class UserService{
     return this._http.post(this.url+'/getUser',params,{headers: headers});
   }
 
+  getDataUser(idUser: String):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    let params = {id: idUser};
+
+    return this._http.post(this.url+'/getDataUser', params,{headers: headers});
+
+  }
 /*
 	saveProject(project: Project):Observable<any>{
   		let params = JSON.stringify(project);

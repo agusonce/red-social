@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post';
 import { Comentario } from '../../models/comentario';
+import { Comentarios } from '../../models/comentarios';
 import { Global} from '../../services/global';
 //import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Router, ActivatedRoute, Params} from '@angular/router';
@@ -13,11 +14,13 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
   providers: [PostService]
 })
 
+
+
 export class PublicacionesComponent implements OnInit {
 public localStorageUser;
 	public posts: Post;
   public url: String;
-  public comenterioDoms: Array<String>;
+  public comenterioDoms: Comentarios;
   public comentario: Comentario;
   public comentarios: Comentario;
   public comentarioPost: Array<String>;
@@ -83,7 +86,6 @@ public localStorageUser;
 
       console.log(idPost);
       if(this.comenterioDoms){
-      console.log(this.comenterioDoms.comentarios[0].post);
           if(this.comenterioDoms.comentarios[0].post == idPost){
                       this.comenterioDoms = null;
           }else{
@@ -140,9 +142,9 @@ public localStorageUser;
  }
 
   insertComent(formId){
-    var form = document.getElementById(formId);
+    var form : any = document.getElementById(formId);
     this.comentario.comentario = form.comentario.value;
-    this.comentario.post = form.post.value;
+    this.comentario.post = formId;
     console.log(this.comentario);
 
     this._postService.insertComentario(this.comentario).subscribe(

@@ -39,8 +39,7 @@
 						</div>
 
 						<form id="{{post._id}}" class="form-comentar" >
-							<input type="hidden" for="post" name="post"  value="{{post._id}}" >
-							<input type="text" name="comentario"   placeholder="Escribir..." >
+							<input type="text" name="comentario"    placeholder="Escribir..." >
 							<input type="submit" value="Enviar" (click)="insertComent(post._id)" >
 						</form>
 

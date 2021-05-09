@@ -16,6 +16,7 @@ var multipartMiddeware = multipart({ uploadDir: './uploads'});
 router.get('/home', UserControlller.home);
 router.get('/getUsers', UserControlller.getUsers);
 router.post('/getUser', UserControlller.getUser);
+router.post('/getDataUser', UserControlller.getDataUser);
 router.post('/save-User', UserControlller.saveUser);
 router.put('/user-update/:id', UserControlller.updateUser);
 router.delete('/user-delete/:id', UserControlller.deleteUser);

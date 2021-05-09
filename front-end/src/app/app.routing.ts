@@ -2,6 +2,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { HomeComponent } from './components/home/home.component';
 import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
@@ -9,6 +10,7 @@ import { PublicacionesComponent } from './components/publicaciones/publicaciones
 const appRoutes: Routes = [
 	{path: '', component: LoginComponent},
 	{path: 'crear-post', component: CreatePostComponent},
+	{path: 'edit-user', component: EditUserComponent},
 	{path: 'publicaciones', component: PublicacionesComponent},
 	{path: 'home', component: HomeComponent}
 ];

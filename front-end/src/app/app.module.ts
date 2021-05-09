@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PublicacionesComponent } from './components/publicaciones/publicaciones.component';
 import { HeaderComponent } from './components/header/header.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HeaderComponent } from './components/header/header.component';
     HeaderComponent,
     HomeComponent,
     PostsComponent,
-    PublicacionesComponent
+    PublicacionesComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

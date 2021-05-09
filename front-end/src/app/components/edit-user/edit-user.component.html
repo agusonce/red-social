@@ -1,0 +1,37 @@
+<div class="perfil">		
+	<div class="banner">
+		<picture [ngStyle]="{'background' : DataUser !=null?'url('+url+'getImage/'+DataUser.banner +')':'s'}">
+		</picture>
+		<div class="presentacion">
+			<div>
+				
+			</div>
+			<div class="imagen" [ngStyle]="{'background' : 'url('+url+'getImage/'+localStorageUser.imagen +')' ,'background-size': 'cover', 'background-position' : 'center'}"></div>
+			<input type="text"  value="{{DataUser?DataUser.firstName+' '+DataUser.lastName:''}}" name=""  disabled />
+
+		</div>
+	</div>
+	<div class="col-1 color-white">
+		<div class="nav-datos">
+			<div class="btn">option 1</div>
+			<div class="btn">Foto</div>
+			<div class="btn">option 1</div>
+			<div class="btn">option 1</div>
+		</div>
+	</div>
+	<div class="contenido">
+		<div class="datos-personales">
+			<div class="titulo"><b>Detalles</b></div>
+			<div class="datos"><p><i>*</i> Vive en :  <b>{{ DataUser?DataUser.city:'' }} - {{DataUser?DataUser.country:''}} </b></p></div>
+			<div class="datos"><p><i>*</i> Estudio en :  <b *ngIf="DataUser">{{ DataUser.firstName?DataUser.firstName : '' }}</b> </p></div>
+			<div class="datos"><p><i>*</i> trabaja en :  <b>{{ DataUser?DataUser.jobName:'' }}</b> </p></div>
+			datos personales
+		</div>
+		<div class="publicaciones">
+		
+				publicaciones
+		</div>
+	</div>
+
+
+</div>
